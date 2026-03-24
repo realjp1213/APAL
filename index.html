@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APAL</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav-bar">
+        <button class="menu-button" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+          ☰
+        </button>
+        <a href="/" class="logo">
+          <img src="images/logo.png" alt="APAL" class="logo-img">
+        </a>
+        <a href="/login" class="login-link">
+          Sign in
+        </a>
+      </nav>
+      <nav class="menu-panel" id="menuPanel" aria-label="Menu">
+        <button class="menu-close" id="menuCloseBtn" aria-label="Close menu">
+          ✕
+        </button>
+        <ul class="menu-list">
+          <li><a href="#how-it-works" id="firstMenuLink">How it works</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="/login">Sign in</a></li>
+        </ul>
+      </nav>
+      <div class="menu-overlay" id="menuOverlay"></div>
+    </header>
+    <main>
+      <section class="hero hero-state-1" id="hero">
+        <div class="hero-text">
+          <h1 class="hero-title">
+            <span>Face social anxiety,</span>
+            <span>one situation at a time</span>
+          </h1>
+          <p class="hero-description">
+            Science-proven cognitive methods that reduce social anxiety - at the reach of your pocket.
+          </p>
+        </div>
+        <!-- State 1 image -->
+        <div class="hero-image hero-image-state-1">
+          <img src="images/mobile-1st-reduced.png" alt="A worried person surrounded by anxious thoughts">
+        </div>
+        <!-- State 2 image -->
+        <div class="hero-image hero-image-state-2">
+          <img src="images/mobile-2nd.png" alt="APAL helping challenge anxious thoughts">
+        </div>
+        <!-- State 1 action-->
+        <div class="challenge-container challenge-state-1">
+          <p class="challenge-helper">
+              See how APAL helps in the moment
+          </p>
+          <button class="challenge-btn" id="challengeThoughtBtn">
+            Challenge this thought →
+          </button>
+        </div>
+        <!-- State 2 action-->
+        <div class="challenge-container challenge-state-2">
+          <p class="challenge-helper">
+            Curious how APAL challenges anxious thoughts? 
+          </p>
+          <a href="#how-it-works" class="challenge-btn challenge-link-btn" id="seeHowBtn">
+            See how APAL works
+          </a>
+        </div>
+      </section>
+      <section class="how-it-works" id="how-it-works">
+        <div class="how-it-works-intro">
+          <h2 class="how-it-works-title">How it works</h2>
+          <p class="how-it-works-description">
+            Feeling anxious? Whether something is about to happen, is happening now, or already happened, APAL helps you work through it in 3 simple steps.
+          </p>
+        </div>
+        <div class="how-it-works-steps">
+          <article class="how-step">
+            <h3 class="how-step-title">
+              1. Describe the situation
+            </h3>
+            <div class="how-step-media">
+              <img src="images/apal-gif-1-reduced.gif" alt="APAL event entry screen where the user describes the situation">
+            </div>
+            <p class="how-step-description">
+              Tell APAL what happened and what’s on your mind.
+            </p>
+          </article>
+          <article class="how-step">
+            <h3 class="how-step-title">2. Challenge the thought</h3>
+            <div class="how-step-media">
+              <img src="images/apal-gif-2-reduced.gif" alt="APAL screen showing guided CBT questions">
+            </div>
+            <p class="how-step-description">
+              Use guided CBT questions to review it.
+            </p>
+          </article>
+          <article class="how-step">
+            <h3 class="how-step-title">3. Track your progress</h3>
+            <div class="how-step-media">
+              <img src="images/apal-gif-3-reduced.gif" alt="APAL anxiety tracker screen showing progress over time">
+            </div>
+            <p class="how-step-description">
+              Set a goal and build confidence over time.
+            </p>
+          </article>
+        </div>
+        <div class="how-it-works-cta">
+          <a href="#signup" class="primary-cta-btn">
+            Get started
+          </a>
+          <p class="cta-helper-text">
+            * for free
+          </p>
+        </div>
+      </section>
+      <section class="cbt-power">
+  <div class="cbt-fact">
+    <h2 class="cbt-power-title">
+      The Power of CBT
+    </h2>
+    <img src="images/7-out-of-10-cbt-fact.png" alt="Illustration showing that around 7 in 10 people improve using CBT techniques" class="cbt-fact-image">
+    <p class="cbt-fact-text">
+      ~7 in 10 people who use CBT techniques report meaningful improvement in anxiety.
+    </p>
+  </div>
+
+  <div class="cbt-problem">
+    <h2 class="cbt-problem-header">
+      Problem?
+    </h2>
+    <p class="cbt-problem-text">
+      Most CBT worksheets are printed, easy to lose, or hard to use in the moment… which is when many social situations actually happen.
+    </p>
+    <img src="images/cbt-sheets-problem.png" alt="Illustration of messy CBT worksheets and papers" class="cbt-problem-image">
+  </div>
+</section>
+      <section class="apal-phone">
+        <div class="apal-phone-text">
+          <h2 class="apal-phone-title">
+            APAL brings these tools to your phone.
+          </h2>
+          <p class="apal-phone-description">
+            Instead of filling out worksheets by hand, you can use APAL to work through anxious thoughts, <strong>save your entries, and track progress over time.</strong>
+          </p>
+        </div>
+        <div class="apal-phone-media">
+          <img src="images/apal-gif-entries-reduced.gif" alt="APAL event entry screen showing how users save entries and work through thoughts" class="apal-phone-image">
+        </div>
+      </section>
+      <!-- Carousel area-->
+<section class="story-section" id="story-section">
+  <div class="story-intro">
+    <h2 class="story-title">Built with guidance from clinical psychologists</h2>
+    <p class="story-description">
+      APAL gives you tools you can use <span class="story-emphasis">before</span>,
+      <span class="story-emphasis">during</span>, and
+      <span class="story-emphasis">after</span> any anxious moment.
+    </p>
+  </div>
+
+  <div class="story-top-cta">
+    <a href="#signup" class="story-top-cta-button">Create an APAL account</a>
+  </div>
+
+  <p class="story-picker-helper">Choose a moment to explore:</p>
+
+  <div class="story-sequence-picker" id="storySequencePicker" aria-label="Choose a story path">
+    <button
+      class="story-sequence-option is-active"
+      data-sequence="before"
+      type="button"
+      aria-pressed="true"
+    >
+      <span class="story-sequence-label">Before social moments</span>
+      <span class="story-sequence-check" aria-hidden="true">✓</span>
+    </button>
+
+    <button
+      class="story-sequence-option"
+      data-sequence="during"
+      type="button"
+      aria-pressed="false"
+    >
+      <span class="story-sequence-label">During social moments</span>
+      <span class="story-sequence-check" aria-hidden="true">✓</span>
+    </button>
+
+    <button
+      class="story-sequence-option"
+      data-sequence="after"
+      type="button"
+      aria-pressed="false"
+    >
+      <span class="story-sequence-label">After social moments</span>
+      <span class="story-sequence-check" aria-hidden="true">✓</span>
+    </button>
+  </div>
+
+  <div class="story-carousel" id="story-carousel" >
+    <button class="story-arrow story-arrow-left" id="storyPrevBtn" aria-label="Previous slide">
+      ←
+    </button>
+
+    <div class="story-viewport">
+      <div class="story-sequence is-active" id="storySequenceBefore" data-sequence-panel="before">
+        <div class="story-track">
+          <article class="story-slide">
+            <p class="story-group-label">Before a social moment</p>
+            <img src="images/before-slides/before-slide-1.png" alt="A person feeling anxious before a social moment" class="story-image">
+            <p class="story-text">
+              Jenny is worried about a dinner with her colleagues. She keeps imagining awkward moments, thinking she’ll have nothing interesting to say, and fearing people will see her as boring.
+            </p>
+          </article>
+
+          <article class="story-slide">
+            <p class="story-group-label">Before a social moment</p>
+            <img src="images/before-slides/before-slide-2.png" alt="APAL asking a CBT question before a social moment" class="story-image">
+            <p class="story-text">
+              When she opens APAL, she writes down her fears and works through a short CBT exercise. APAL helps her question the idea that everyone will judge her, and guides her toward a small, realistic step for the evening.
+            </p>
+          </article>
+
+          <article class="story-slide">
+            <p class="story-group-label">Before a social moment</p>
+            <img src="images/before-slides/before-slide-3.jpg" alt="A calmer social moment after using APAL beforehand" class="story-image">
+            <p class="story-text">
+              After doing the exercise, Jenny feels less overwhelmed and more ready for the dinner. She still feels nervous, but the fear no longer controls the whole picture.
+            </p>
+          </article>
+        </div>
+      </div>
+
+      <div class="story-sequence" id="storySequenceDuring" data-sequence-panel="during">
+        <div class="story-track">
+          <article class="story-slide">
+            <p class="story-group-label">During a social moment</p>
+            <img src="images/during-slides/during-slide-1.jpg" alt="A person feeling anxious during a social moment" class="story-image">
+            <p class="story-text">
+              Andrew is at a party. He starts feeling awkward and notices his mind racing: “I don’t know what to say,” “People can tell I’m uncomfortable,” “I should leave.”
+            </p>
+          </article>
+
+          <article class="story-slide">
+            <p class="story-group-label">During a social moment</p>
+            <img src="images/during-slides/during-slide-2.png" alt="APAL guiding someone during an anxious moment" class="story-image">
+            <p class="story-text">
+              He steps aside, opens APAL, and follows a quick grounding exercise. Then he writes down the thoughts making him spiral. APAL helps him test those thoughts with simple CBT questions.
+            </p>
+          </article>
+
+          <article class="story-slide">
+            <p class="story-group-label">During a social moment</p>
+            <img src="images/during-slides/during-slide-3.png" alt="A person feeling calmer during a social interaction" class="story-image">
+            <p class="story-text">
+              Andrew saves the moment in his Entries so he can reflect on it later. He goes back to the party with a more open approach and starts his first conversation of the night.
+            </p>
+          </article>
+        </div>
+      </div>
+
+      <div class="story-sequence" id="storySequenceAfter" data-sequence-panel="after">
+        <div class="story-track">
+          <article class="story-slide">
+            <p class="story-group-label">After a social moment</p>
+            <img src="images/after-slides/after-slide-1.png" alt="A person replaying a social moment afterwards" class="story-image">
+            <p class="story-text">
+              Ron had a quick chat with his neighbours. As soon as he got home, he started replaying the moment again and again and assuming he sounded strange.
+            </p>
+          </article>
+
+          <article class="story-slide">
+            <p class="story-group-label">After a social moment</p>
+            <img src="images/after-slides/after-slide-2.png" alt="APAL asking a CBT question after a social moment" class="story-image">
+            <p class="story-text">
+              When he found APAL, he finally wrote down the thoughts bothering him. APAL helped him question those assumptions and suggested a small step for the next time he sees them.
+            </p>
+          </article>
+
+          <article class="story-slide">
+            <p class="story-group-label">After a social moment</p>
+            <img src="images/after-slides/after-slide-3.png" alt="A calmer perspective after reflecting with APAL" class="story-image">
+            <p class="story-text">
+              Ron used to get stuck in rumination for days. After using APAL for a while, he’s learned to slow down these thoughts, review them, and move forward instead of staying stuck.
+            </p>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <button class="story-arrow story-arrow-right" id="storyNextBtn" aria-label="Next slide">
+      →
+    </button>
+  </div>
+
+  <div class="story-sequence-cta" id="storySequenceCta">
+    <p class="story-group-label">Try it for yourself</p>
+    <h3 class="story-cta-title">Ready to use APAL in real moments?</h3>
+    <p class="story-cta-text">
+      Start using tools designed for before, during, and after anxious situations.
+    </p>
+    <a href="#signup" class="story-cta-button">Get started - free</a>
+
+    <button class="story-next-sequence-button" id="storyNextSequenceBtn" type="button">
+      Check APAL during social moments
+    </button>
+  </div>
+</section>
+<div class="bottom-cards-grid">
+  <!-- About Preview -->
+  <section class="about-preview" id="about-preview">
+    <div class="about-card">
+      <h2 class="about-title">How APAL was born</h2>
+      <img
+        src="images/about-preview-image.png"
+        alt="Juan, founder of APAL"
+        class="about-image"
+      />
+
+      <div class="about-text">
+        <p>
+          Hey, I’m Juan :)
+          I built APAL after CBT helped me deal with social anxiety.
+          While practicing it, I noticed many CBT resources were hard to use digitally or required printing worksheets.
+        </p>
+
+        <p>
+          So I partnered with my psychologist to bring this tool to you.
+        </p>
+      </div>
+
+      <a href="#about-section" class="about-button">
+        Read my story
+      </a>
+    </div>
+  </section>
+
+  <!-- Premium Preview -->
+  <section class="premium-preview" id="premium-preview">
+    <div class="premium-card">
+      <img
+        src="images/apal-premium.png"
+        alt="APAL Premium illustration"
+        class="premium-image"
+      />
+
+      <div class="premium-text">
+        <p>
+          I’m building new features for APAL and opening early access to a small group.
+        </p>
+
+        <p>
+          Join the waitlist to try them first and share your feedback.
+        </p>
+      </div>
+
+      <a href="premium-waitlist.html" class="premium-button">
+        Get Early Access
+      </a>
+    </div>
+  </section>
+
+  <!-- Community CTA-->
+  <section class="community-section" id="community">
+    <h2 class="community-title">APAL Community</h2>
+
+    <div class="community-options">
+      <a href="https://facebook.com/your-group" target="_blank" class="community-card">
+        <img src="images/facebook-logo.png" alt="Facebook logo" class="community-icon" />
+        <span class="community-label">Join on Facebook</span>
+      </a>
+
+      <a href="https://discord.gg/your-link" target="_blank" class="community-card">
+        <img src="images/discord-logo.png" alt="Discord logo" class="community-icon" />
+        <span class="community-label">Join on <br> Discord</span>
+      </a>
+    </div>
+
+    <p class="community-description">
+      A space where people can share experiences, ask questions, and support each other while using APAL.
+    </p>
+  </section>
+</div>
+
+<section class="faq-section" id="faq">
+  <div class="faq-intro">
+    <h2 class="faq-title">Frequently Asked Questions</h2>
+  </div>
+
+  <div class="faq-list">
+    <article class="faq-item">
+      <button class="faq-question" type="button">
+        <span>Is APAL free?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          Yes. The core features of APAL are free to use. We’re currently building a premium version with additional features, which will be tested with a small group of early users.
+        </p>
+        <p>
+          You’ll still be able to use APAL for free. The premium version is optional.
+        </p>
+      </div>
+    </article>
+
+    <article class="faq-item">
+      <button class="faq-question" type="button">
+        <span>What exactly does APAL help with?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          APAL helps you handle social anxiety using simple CBT-based tools.
+        </p>
+        <p>
+          You can use it to talk through anxious moments, complete short exercises, reflect on past events, and track your progress over time.
+        </p>
+      </div>
+    </article>
+
+    <article class="faq-item">
+      <button class="faq-question" type="button">
+        <span>Who is APAL for?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          APAL is for anyone dealing with social anxiety or wanting to better understand their thoughts and reactions in social situations.
+        </p>
+      </div>
+    </article>
+
+    <article class="faq-item">
+      <button class="faq-question" type="button">
+        <span>When should I use APAL?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          You can use APAL before, during, or after a situation that feels stressful.
+        </p>
+        <p>
+          It helps you prepare, reflect on what happened, and stay consistent with your progress.
+        </p>
+      </div>
+    </article>
+
+    <article class="faq-item">
+      <button class="faq-question" type="button">
+        <span>What makes APAL different from other CBT tools?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          Most CBT tools rely on static worksheets or are not designed for social anxiety.
+        </p>
+        <p>
+          APAL guides you through exercises in a simpler, chat-like way, so it’s easier to reflect, stay consistent, and improve social anxiety over time.
+        </p>
+      </div>
+    </article>
+
+    <article class="faq-item">
+      <button class="faq-question" type="button">
+        <span>Do I need to use APAL every day?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          No. You can use it whenever you need it. Some people use it daily, while others only use it during specific situations. Both work.
+        </p>
+      </div>
+    </article>
+
+    <article class="faq-item">
+      <button class="faq-question" type="button">
+        <span>Do I need a therapist to use this?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          No. You can use APAL with or without a therapist.
+        </p>
+        <p>
+          CBT usually works faster when a professional is involved, but many people still benefit from doing the exercises on their own.
+        </p>
+      </div>
+    </article>
+
+    <article class="faq-item">
+      <button class="faq-question" type="button">
+        <span>Does APAL replace therapy?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          No. APAL is not a replacement for therapy.
+        </p>
+        <p>
+          It is meant to support your CBT journey, keep everything in one place, and make it easier to reflect between sessions.
+        </p>
+        <p>
+          If you don’t have access to therapy, APAL can still help you build useful habits and reduce avoidance, just at a slower pace than working with a clinician.
+        </p>
+      </div>
+    </article>
+
+    <article class="faq-item">
+      <button class="faq-question" type="button">
+        <span>Can I use APAL together with my therapist?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          Yes. APAL was designed with therapy in mind.
+        </p>
+        <p>
+          You can share your entries, reflections, and progress with your therapist so you both have a clearer picture of your week.
+        </p>
+        <p>
+          If your therapist has suggestions or wants to know more, they can reach out to us anytime. We’re very open to feedback from professionals, since it helps us make APAL better for everyone.
+        </p>
+      </div>
+    </article>
+
+    <article class="faq-item">
+      <button class="faq-question" type="button">
+        <span>Is my data private?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          Yes. Your entries and reflections are private and secure. We don’t share your data, and you stay in control of what you write.
+        </p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="faq-contact-section" id="faq-contact">
+  <div class="faq-contact-card">
+    <h2 class="faq-contact-title">Got any questions?</h2>
+    <p class="faq-contact-text">
+      Contact us here or send a message through the form:
+    </p>
+
+<form class="contact-form" id="contactForm">
+  <input type="hidden" name="access_key" value="f943d802-9dad-4a36-9ca7-59252b248ee1" />
+  <input type="hidden" name="subject" value="New APAL contact form message" />
+  <input type="checkbox" name="botcheck" class="hidden-bot-field" tabindex="-1" autocomplete="off" />
+
+  <div class="contact-form-field">
+    <label for="contactName" class="contact-label">Name</label>
+    <input
+      type="text"
+      id="contactName"
+      name="name"
+      class="contact-input"
+      placeholder="Your name"
+      required
+    />
+  </div>
+
+  <div class="contact-form-field">
+    <label for="contactEmail" class="contact-label">Email</label>
+    <input
+      type="email"
+      id="contactEmail"
+      name="email"
+      class="contact-input"
+      placeholder="Your email"
+      required
+    />
+  </div>
+
+  <div class="contact-form-field">
+    <label for="contactMessage" class="contact-label">Message</label>
+    <textarea
+      id="contactMessage"
+      name="message"
+      class="contact-textarea"
+      placeholder="Write your message here"
+      rows="5"
+      required
+    ></textarea>
+  </div>
+
+  <button type="submit" class="contact-submit-btn" id="contactSubmitBtn">
+    Send message
+  </button>
+
+  <p class="contact-form-status" id="contactFormStatus" aria-live="polite"></p>
+</form>
+    </div>
+  </div>
+</section>
+
+    </main>
+    <footer></footer>
+    <script src="js/app.js"></script>
+  </body>
+</html>
