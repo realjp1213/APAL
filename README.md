@@ -1,2 +1,2 @@
-# apal-homepage
-APAL's initial prototype for homepage
+# apal
+APAL - CBT digital engine, specialized for social anxiety.
