@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APAL PAST Simulation</title>
+</head>
+<body>
+  <h1>APAL PAST Simulation</h1>
+  <p>Open the browser console to test the PAST engine.</p>
+
+  <script src="../js/apal-js/past/pastStages.js"></script>
+  <script src="../js/apal-js/past/createPastSession.js"></script>
+  <script src="../js/apal-js/past/pastFlow.js"></script>
+  <script src="../js/apal-js/past/pastValidation.js"></script>
+  <script src="../js/apal-js/past/submitPastAnswer.js"></script>
+
+<script>
+  console.log("=== APAL PAST SIMULATION START ===");
+
+  function applyAnswer(session, answer, label) {
+    const result = submitPastAnswer(session, answer);
+
+    console.log(label);
+    console.log("Validation:", result.validation);
+    console.log("Session:", result.session);
+    console.log("Current stage:", result.session.currentStage);
+
+    return result.session;
+  }
+
+
+  console.log("=== VALIDATION TESTS START ===");
+
+// Create a free session so character limits apply
+let validationSession = createPastSession(false);
+
+// 1. Empty input
+let result = submitPastAnswer(validationSession, "");
+console.log("Empty input test:", result.validation);
+console.log("Stage after empty input should still be 'situation':", result.session.currentStage);
+
+// 2. Nonsense input
+result = submitPastAnswer(validationSession, "!!!!!");
+console.log("Nonsense input test:", result.validation);
+console.log("Stage after nonsense input should still be 'situation':", result.session.currentStage);
+
+// 3. Too long input for free user
+result = submitPastAnswer(validationSession, "a".repeat(300));
+console.log("Too long input test:", result.validation);
+console.log("Stage after too long input should still be 'situation':", result.session.currentStage);
+
+// 4. Safety input
+result = submitPastAnswer(validationSession, "I want to kill myself");
+console.log("Safety input test:", result.validation);
+console.log("Stage after safety input should still be 'situation':", result.session.currentStage);
+
+console.log("=== VALIDATION TESTS END ===");
+    
+
+    // Create a premium session so we can test the extra-thought logic too
+    let session = createPastSession(true);
+
+    console.log("1. New session created:");
+    console.log(session);
+
+    console.log("Current stage should be 'situation':", session.currentStage);
+
+    // Step 1: situation
+    session = applyAnswer(
+      session,
+      "I was at dinner with friends and I went quiet after an awkward silence",
+      "2. After situation answer:"
+    );
+    console.log("2. After situation answer:");
+    console.log(session);
+    console.log("Current stage should now be 'avoidance':", session.currentStage);
+
+    // Step 2: avoidance
+    session = applyAnswer(
+      session,
+      "I avoided eye contact and stayed quiet so nobody noticed I felt awkward", 
+      "3. After avoidance answer:"
+    );
+    console.log("3. After avoidance answer:");
+    console.log(session);
+    console.log("Current stage should now be 'thought_input':", session.currentStage);
+
+    // Step 3: thought input
+    session = applyAnswer(
+      session,
+      "They think I'm weird. I looked awkward. I ruined the mood",
+      "4. After thought input:"
+    );
+    console.log("4. After thought input:");
+    console.log(session);
+    console.log("Thought items should now be split into 3:", session.thoughts.items);
+    console.log("Current stage should now be 'thought_select':", session.currentStage);
+
+    // Step 4: thought selection
+    session = applyAnswer(session, "They think I'm weird", "5. After thought selection:");
+    console.log("5. After thought selection:");
+    console.log(session);
+    console.log("Selected thought:", session.selectedThought);
+    console.log("Extra thoughts:", session.extraThoughts);
+    console.log("Current stage should now be 'evidence_for':", session.currentStage);
+
+    // Step 5: main review block
+    session = applyAnswer(session, "There was an awkward silence and I stopped talking", "6. After evidence_for:");
+    console.log("6. After evidence_for:", session.currentStage, session.mainThoughtReview);
+
+    session = applyAnswer(session, "Nobody actually said I was weird and people kept talking normally", "7. After evidence_against:");
+    console.log("7. After evidence_against:", session.currentStage, session.mainThoughtReview);
+
+    session = applyAnswer(session, "It may have just been a normal pause and nobody thought much about it", "8. After alternative_explanation:");
+    console.log("8. After alternative_explanation:", session.currentStage, session.mainThoughtReview);
+
+    session = applyAnswer(session, "Even if someone noticed, it would be uncomfortable but I could move on", "9. After realistic_impact:");
+    console.log("9. After realistic_impact:", session.currentStage, session.mainThoughtReview);
+
+    session = applyAnswer(session, "Summary placeholder", "10. After summary:");
+    console.log("10. After summary:", session.currentStage, session.mainThoughtReview);
+
+    session = applyAnswer(session, "A more rational thought is that one awkward moment does not mean people think I'm weird", "11. After rational_response:");
+    console.log("11. After rational_response:", session.currentStage, session.mainThoughtReview);
+
+    session = applyAnswer(session, "One awkward silence does not define the whole interaction", "12. After takeaway:");
+
+    session = applyAnswer(session, "done", "13. After close_rumination:");
+    console.log("13. After close_rumination:");
+    console.log(session);
+    console.log("Current stage should now be 'extra_thought_offer':", session.currentStage);
+
+    // Step 6: premium extra thought offer
+    session = applyAnswer(session, "yes", "14. After accepting extra thought offer:");
+    console.log("14. After extra_thought_offer:");
+    console.log(session);
+    console.log("Current stage should now be 'extra_thought_review':", session.currentStage);
+
+    // Step 7: extra thought review
+    session = applyAnswer(session, {
+      evidenceFor: "I felt tense and quiet",
+      evidenceAgainst: "No one reacted negatively",
+      alternativeExplanation: "I may just have felt self-conscious",
+      realisticImpact: "It would not matter much in the bigger picture",
+      copingResponse: "I could continue the conversation or let it pass",
+      summary: "Extra thought review summary",
+      rationalResponse: "Feeling awkward does not mean I actually looked awkward",
+      takeaway: "My anxiety is not the same as reality"
+    }, "15. After first extra thought review:");
+    console.log(session);
+    console.log("Current stage should now be 'extra_thought_offer' or 'save':", session.currentStage);
+
+    // Optional: say no to reviewing another extra thought
+    if (session.currentStage === "extra_thought_offer") {
+      session = applyAnswer(session, "no", "16. After declining another extra thought:");
+      console.log(session);
+    }
+
+    // Save
+    if (session.currentStage === "save") {
+      session = applyAnswer(session, "save", "17. After save:");
+      console.log(session);
+    }
+
+    console.log("Final session:");
+    console.log(session);
+
+    console.log("=== APAL PAST SIMULATION END ===");
+  </script>
+</body>
+</html>
