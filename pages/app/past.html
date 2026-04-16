@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APAL — Reflect</title>
+
+  <!-- Work Sans font — same font used across the rest of APAL -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Shared app stylesheet — also used by future app pages (during.html, future.html, etc.) -->
+  <link rel="stylesheet" href="../../css/app.css" />
+</head>
+
+<body>
+  <div class="page-wrapper">
+
+    <!-- ── Zone 1: Header ── -->
+    <header class="app-header">
+      <div class="nav-bar">
+        <button class="back-btn" aria-label="Go back">&#8592;</button>
+        <span class="app-title">APAL</span>
+        <div class="nav-spacer"></div>
+      </div>
+
+      <div class="progress-strip">
+        <span class="stage-label">Situation</span>
+        <span class="step-count">Step 1 of 11</span>
+        <div class="progress-track">
+          <div class="progress-fill"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ── Zone 2: Message area ── -->
+    <!-- Empty for now. JavaScript will add message bubbles here. -->
+    <main class="message-area" id="messageArea"></main>
+
+    <!-- ── Zone 3: Input bar ── -->
+    <footer class="input-bar" id="inputBar">
+      <button class="plus-btn" aria-label="More options">+</button>
+      <input
+        type="text"
+        class="message-input"
+        id="messageInput"
+        placeholder="Message..."
+      />
+      <!-- Disabled by default. JavaScript enables it when the user types. -->
+      <button class="send-btn" id="sendBtn" disabled aria-label="Send message">&#8593;</button>
+    </footer>
+
+  </div>
+
+  <!-- Engine files — loaded in dependency order (each file uses the ones above it) -->
+  <script src="../../js/apal-js/past/pastStages.js"></script>
+  <script src="../../js/apal-js/past/createPastSession.js"></script>
+  <script src="../../js/apal-js/past/pastFlow.js"></script>
+  <script src="../../js/apal-js/past/pastValidation.js"></script>
+  <script src="../../js/apal-js/past/submitPastAnswer.js"></script>
+
+  <!-- UI layer — loaded last so all engine functions are already defined -->
+  <script src="../../js/apal-js/past/pastUI.js"></script>
+
+</body>
+</html>

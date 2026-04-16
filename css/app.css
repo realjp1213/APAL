@@ -1,0 +1,295 @@
+/* ── Reset ──────────────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Work Sans", system-ui, sans-serif;
+  background: #fafafa;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+/* ── Page wrapper ────────────────────────────────────────────────────── */
+.page-wrapper {
+  max-width: 500px;
+  margin: 0 auto;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* ── Zone 1: Header ──────────────────────────────────────────────────── */
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 500px;
+  background: rgba(250, 250, 250, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 100;
+}
+
+.nav-bar {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #999999;
+  width: 40px;
+  text-align: left;
+  padding: 0;
+}
+
+/* flex: 1 fills remaining space so the title is centred between the two 40px sides */
+.app-title {
+  flex: 1;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: #333333;
+}
+
+/* Invisible spacer — same width as back-btn — keeps "APAL" truly centred */
+.nav-spacer {
+  width: 40px;
+}
+
+.progress-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0 16px 10px;
+}
+
+.stage-label {
+  font-size: 12px;
+  color: #999999;
+  flex: 1;
+}
+
+.step-count {
+  font-size: 12px;
+  color: #999999;
+}
+
+.progress-track {
+  width: 100%;
+  height: 3px;
+  background: #eeeeee;
+  border-radius: 2px;
+  margin-top: 6px;
+  overflow: hidden;
+}
+
+/* Width is set to 9% (stage 1 of 11). JavaScript will update this as the session advances. */
+.progress-fill {
+  height: 100%;
+  background: #f9a8a8;
+  border-radius: 2px;
+  transition: width 0.4s ease;
+  width: 9%;
+}
+
+/* ── Zone 2: Message area ─────────────────────────────────────────────── */
+/* flex: 1 makes it fill all space between header and input bar */
+.message-area {
+  flex: 1;
+  overflow-y: auto;
+  /* Top padding clears the fixed header. Bottom padding clears the fixed input bar. */
+  padding: 106px 24px 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Zone 3: Input bar ────────────────────────────────────────────────── */
+.input-bar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 500px;
+  background: rgba(250, 250, 250, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid #eeeeee;
+  padding: 12px 16px;
+  /* env(safe-area-inset-bottom) adds extra room on iPhones with a home indicator */
+  padding-bottom: calc(12px + env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 100;
+}
+
+.plus-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: #e5e5e5;
+  color: #888888;
+  font-size: 20px;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.message-input {
+  flex: 1;
+  background: #ededed;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-family: inherit;
+  color: #333333;
+  outline: none;
+}
+
+.message-input::placeholder {
+  color: #aaaaaa;
+}
+
+.message-input:focus {
+  box-shadow: 0 0 0 2px rgba(249, 168, 168, 0.4);
+}
+
+.send-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: #3bb9ff;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+
+/* Fades to 40% when disabled (no text typed yet) */
+.send-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* ── Message rows ────────────────────────────────────────────────────── */
+/* Each message (APAL or user) sits inside a row that controls alignment */
+.message-row {
+  display: flex;
+  align-items: flex-end; /* avatar sits at the bottom of the bubble, not the top */
+  gap: 8px;
+}
+
+.message-row--apal {
+  justify-content: flex-start; /* push everything to the left */
+}
+
+.message-row--user {
+  justify-content: flex-end; /* push everything to the right */
+}
+
+/* ── APAL avatar ─────────────────────────────────────────────────────── */
+.apal-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%; /* makes the square image a circle */
+  flex-shrink: 0;     /* never squish the avatar */
+  object-fit: cover;  /* crop the image to fit the circle without distorting it */
+}
+
+/* ── Shared bubble styles ────────────────────────────────────────────── */
+/* Both APAL and user bubbles share these rules */
+.bubble {
+  max-width: 85%;
+  padding: 14px 16px;
+  font-size: 15px;
+  line-height: 1.6;
+  white-space: pre-line; /* respects line breaks written into the message text */
+}
+
+/* ── APAL bubble ─────────────────────────────────────────────────────── */
+.bubble--apal {
+  background: #fff0f0;
+  border: 1px solid rgba(249, 168, 168, 0.3);
+  border-radius: 20px;
+  border-bottom-left-radius: 4px; /* flattened corner — faces toward the avatar */
+  color: #554444;
+}
+
+/* ── User bubble ─────────────────────────────────────────────────────── */
+.bubble--user {
+  background: #efefef;
+  border-radius: 20px;
+  border-bottom-right-radius: 4px; /* flattened corner — faces the right edge */
+  color: #444444;
+}
+
+/* ── Option buttons (thought_select stage) ───────────────────────────── */
+/* Stacked buttons shown when user needs to pick a thought */
+.option-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 85%;
+  margin-left: 36px; /* 28px avatar width + 8px gap = lines up with APAL bubbles */
+}
+
+.option-btn {
+  width: 100%;
+  background: white;
+  border: 1px solid #f9a8a8;
+  border-radius: 16px;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #554444;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.option-btn:hover {
+  background: #fff5f5;
+  border-color: #f48a8a;
+}
+
+/* ── Complete button (replaces input bar when session finishes) ───────── */
+.complete-btn {
+  width: 100%;
+  background: #f87171;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 14px;
+  font-size: 15px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.complete-btn:hover {
+  background: #ef4444;
+}
