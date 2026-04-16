@@ -120,8 +120,8 @@ APAL/
 
 - Phase 1 — Engine definition ✅ DONE
 - Phase 2 — Validation rules ✅ DONE
-- Phase 3 — UI Shell 👈 CURRENT FOCUS
-- Phase 4 — PAST mode end-to-end
+- Phase 3 — UI Shell ✅ DONE
+- Phase 4 — PAST mode end-to-end 👈 CURRENT FOCUS
 - Phase 5 — Connect onboarding
 - Phase 6 — Save to Supabase
 - Phase 7 — Features (entries, tracker)
@@ -130,19 +130,19 @@ APAL/
 
 ---
 
-## Current focus: Phase 3 — UI Shell
+## Current focus: Phase 4 — PAST mode end-to-end
 
-We are building the visible interface for PAST mode.
+We are building Phase 4 — PAST mode end-to-end.
 
-The file is: pages/app/past.html
+Phase 3 is complete. The UI shell exists at pages/app/past.html
+and is connected to the engine. A user can go through a full
+PAST mode session from situation to complete.
 
-It needs:
-- A chat-like message area (where APAL speaks to the user)
-- An input field (where the user types)
-- A send button
-- Connected to the existing JS engine files
-
-The engine files are already built and tested. The UI just needs to call them.
+Phase 4 goals:
+- Test and fix any flow issues discovered during real use
+- Handle edge cases (back navigation, session reset)
+- Make the experience feel complete and solid
+- Prepare for Supabase integration in Phase 6
 
 ---
 
