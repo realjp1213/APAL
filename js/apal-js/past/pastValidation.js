@@ -104,6 +104,20 @@ function containsSafetyRisk(input) {
   return SAFETY_KEYWORDS.some(keyword => lower.includes(keyword));
 }
 
+// Stage-specific nudge messages shown when the user submits empty input
+const EMPTY_MESSAGES = {
+  [PAST_STAGES.SITUATION]:               "Give me a quick summary of what happened, even if it's short.",
+  [PAST_STAGES.AVOIDANCE]:               "Did you stay quiet, leave early, or do anything else to feel safer? Even a small thing counts.",
+  [PAST_STAGES.THOUGHT_INPUT]:           "Try writing the actual thought in your mind, like: \"They think I'm weird\" or \"I looked awkward.\"",
+  [PAST_STAGES.EVIDENCE_FOR]:            "What made that thought feel true in that moment? Even one small thing is fine.",
+  [PAST_STAGES.EVIDENCE_AGAINST]:        "Try writing one reason that the thought may not be fully true.",
+  [PAST_STAGES.ALTERNATIVE_EXPLANATION]: "What is another normal explanation, besides the worst-case one?",
+  [PAST_STAGES.REALISTIC_IMPACT]:        "Even if the worst happened — how bad would it really be? Try to answer honestly.",
+  [PAST_STAGES.RATIONAL_RESPONSE]:       "Based on everything above, what's a more balanced way to see this? Even one sentence helps.",
+  [PAST_STAGES.TAKEAWAY]:                "What's one small thing you're taking away from this? It doesn't have to be perfect.",
+  [PAST_STAGES.CLOSE_RUMINATION]:        "Type anything when you're ready to finish — even just \"done\"."
+};
+
 // Main validation function
 function validatePastInput(session, answer) {
   const stage = session.currentStage;
@@ -115,10 +129,11 @@ function validatePastInput(session, answer) {
 
   // 1. Empty input
   if (isEmpty(answer)) {
+    const message = EMPTY_MESSAGES[stage] || "Please add an answer before continuing.";
     return {
       valid: false,
       reason: "empty",
-      message: "Please add an answer before continuing."
+      message
     };
   }
 
