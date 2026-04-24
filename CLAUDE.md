@@ -172,3 +172,4 @@ Checking validation:
 
 Getting current stage:
   session.currentStage  →  a string like "situation" or "evidence_for"
+- docs/ui-spec.md             ← visual and interaction spec for PAST mode
