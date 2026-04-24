@@ -165,7 +165,7 @@ function showStage(stage) {
     return;
   }
 
-  // summary: no AI yet — build a brief text summary and auto-advance
+  // summary: show what the user has worked through, then wait for them to continue
   if (stage === PAST_STAGES.SUMMARY) {
     const summaryText =
       'Here\'s what you\'ve worked through so far:\n\n' +
@@ -173,8 +173,12 @@ function showStage(stage) {
       'Evidence for it: ' + session.mainThoughtReview.evidenceFor + '\n\n' +
       'Evidence against it: ' + session.mainThoughtReview.evidenceAgainst;
     addApalMessage(summaryText);
-    goToNextPastStage(session);
-    showStage(session.currentStage);
+    hideInputBar();
+    addOptionButtons(['Continue'], function() {
+      showInputBar();
+      goToNextPastStage(session);
+      showStage(session.currentStage);
+    });
     return;
   }
 
