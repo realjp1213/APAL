@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Check your email - APAL</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-bar">
+      <a href="../../index.html" class="logo">
+        <img src="../../images/logo.png" alt="APAL" class="logo-img">
+      </a>
+    </nav>
+  </header>
+
+  <main class="auth-page">
+    <section class="auth-container">
+      <div class="auth-card auth-info-card">
+        <img src="../../images/logo.png" alt="APAL" class="auth-logo">
+
+        <h1 class="auth-title">Check your email</h1>
+
+        <p class="auth-info-text">
+          We’ve sent you a confirmation email to <strong id="confirmEmailAddress"></strong>.
+        </p>
+
+        <p class="auth-info-text">
+          Open your inbox, click the confirmation link, and then come back to log in.
+        </p>
+
+        <p class="auth-info-text auth-info-note">
+          If you don’t see the email, check your spam or junk folder.
+        </p>
+
+        <div class="auth-actions">
+          <a href="login.html" class="auth-submit-btn auth-link-btn">Go to login</a>
+          <a href="signup.html" class="auth-secondary-link">Use a different email</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+  const params = new URLSearchParams(window.location.search);
+  const email = params.get("email");
+  const emailTarget = document.getElementById("confirmEmailAddress");
+
+  if (email && emailTarget) {
+    emailTarget.textContent = email;
+  }
+</script>
+</body>
+</html>

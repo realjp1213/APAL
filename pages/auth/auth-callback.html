@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signing you in - APAL</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <main class="auth-page">
+    <section class="auth-container">
+      <div class="auth-card auth-info-card">
+        <img src="../../images/logo.png" alt="APAL" class="auth-logo">
+        <h1 class="auth-title">Signing you in...</h1>
+        <p class="auth-info-text">Please wait a moment.</p>
+        <p class="form-error form-error-global" id="callbackError"></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../../js/auth-callback.js"></script>
+</body>
+</html>
