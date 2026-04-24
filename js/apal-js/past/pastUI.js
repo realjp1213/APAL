@@ -160,7 +160,9 @@ function showStage(stage) {
       showInputBar();
       const result = submitPastAnswer(session, selected);
       session = result.session;
-      showStage(session.currentStage);
+      setTimeout(function() {
+        showStage(session.currentStage);
+      }, 800);
     });
     return;
   }
@@ -223,12 +225,15 @@ function handleSubmit() {
   session = result.session;
 
   if (!result.validation.valid) {
-    // Show APAL's validation message and stay on the same stage
-    addApalMessage(result.validation.message);
+    setTimeout(function() {
+      addApalMessage(result.validation.message);
+    }, 800);
     return;
   }
 
-  showStage(session.currentStage);
+  setTimeout(function() {
+    showStage(session.currentStage);
+  }, 800);
 }
 
 // ── Event listeners ──────────────────────────────────────────────────────
