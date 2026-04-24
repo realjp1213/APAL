@@ -49,6 +49,8 @@ Key docs to read:
 - docs/apal-rules.md          ← all guardrails, validation rules, premium logic
 - docs/past-mode-spec.md      ← full PAST mode stage structure and spec
 - docs/ui-spec.md             ← visual and interaction spec for PAST mode
+- docs/ux-improvements.md    ← deferred UX ideas (do not build yet)
+
 
 Only after reading these should you begin any task.
 
@@ -130,8 +132,8 @@ APAL/
 - Phase 1 — Engine definition ✅ DONE
 - Phase 2 — Validation rules ✅ DONE
 - Phase 3 — UI Shell ✅ DONE
-- Phase 4 — PAST mode end-to-end 👈 CURRENT FOCUS
-- Phase 5 — Connect onboarding
+- Phase 4 — PAST mode end-to-end ✅ DONE
+- Phase 5 — Connect onboarding 👈 CURRENT FOCUS
 - Phase 6 — Save to Supabase
 - Phase 7 — Features (entries, tracker)
 - Phase 8 — REVIEW mode
@@ -139,19 +141,18 @@ APAL/
 
 ---
 
-## Current focus: Phase 4 — PAST mode end-to-end
+## Current focus: Phase 5 — Connect onboarding
 
-We are building Phase 4 — PAST mode end-to-end.
+We are building Phase 5 — Connect onboarding to APAL.
 
-Phase 3 is complete. The UI shell exists at pages/app/past.html
-and is connected to the engine. A user can go through a full
-PAST mode session from situation to complete.
+Phase 4 is complete. The full PAST mode flow works end-to-end.
+Flow issues were fixed, the summary stage pauses correctly,
+responses feel natural with a delay, and the back arrow works.
 
-Phase 4 goals:
-- Test and fix any flow issues discovered during real use
-- Handle edge cases (back navigation, session reset)
-- Make the experience feel complete and solid
-- Prepare for Supabase integration in Phase 6
+Phase 5 goals:
+- Route users from onboarding into the correct APAL mode
+- Pass onboarding context into the session object
+- Connect the existing auth pages to the app flow
 
 ---
 
