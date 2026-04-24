@@ -15,7 +15,7 @@ function parseThoughtInput(rawInput) {
   }
 
   return rawInput
-    .split(".")
+    .split(/[.,]/)
     .map(thought => thought.trim())
     .filter(thought => thought.length > 0)
     .slice(0, 3); // limit to max 3 thoughts
