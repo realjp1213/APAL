@@ -48,6 +48,7 @@ Key docs to read:
 - docs/apal-roadmap.md        ← phases and what is already built
 - docs/apal-rules.md          ← all guardrails, validation rules, premium logic
 - docs/past-mode-spec.md      ← full PAST mode stage structure and spec
+- docs/ui-spec.md             ← visual and interaction spec for PAST mode
 
 Only after reading these should you begin any task.
 
@@ -80,7 +81,7 @@ APAL/
 ├── CLAUDE.md                         ← this file
 ├── pages/
 │   ├── app/
-│   │   └── past.html                 ← PAST mode session page (Phase 3 focus)
+│   │   └── past.html                 ← PAST mode session page (Phase 4 focus)
 │   ├── auth/
 │   │   ├── signup.html
 │   │   ├── login.html
@@ -96,11 +97,19 @@ APAL/
 │           ├── createPastSession.js  ← creates a session object
 │           ├── pastFlow.js           ← decides next stage
 │           ├── pastValidation.js     ← validates input before saving
-│           └── submitPastAnswer.js   ← saves answer + moves stage
+│           ├── submitPastAnswer.js   ← saves answer + moves stage
+│           └── pastUI.js             ← renders bubbles, connects UI to engine
 ├── css/
-│   └── style.css
+│   ├── style.css                     ← landing page styles only
+│   └── app.css                       ← shared styles for all app pages
 ├── images/
 └── docs/                             ← spec and architecture docs
+    ├── apal-architecture.md
+    ├── apal-roadmap.md
+    ├── apal-rules.md
+    ├── past-mode-spec.md
+    ├── ui-spec.md
+    └── designs/                      ← reference screenshots from Orchid
 ```
 
 ---
@@ -172,4 +181,3 @@ Checking validation:
 
 Getting current stage:
   session.currentStage  →  a string like "situation" or "evidence_for"
-- docs/ui-spec.md             ← visual and interaction spec for PAST mode
